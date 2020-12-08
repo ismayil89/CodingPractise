@@ -48,7 +48,7 @@ class MyLinkedList:
         print("Adding value {0} at the index {1}".format(val,index))
         if index == 0:
             self.addAtHead(val)
-        elif index == self.getLenOfLinkedList() - 1:
+        elif index == self.getLenOfLinkedList():
             self.addAtTail(val)
         else:
             print("Index is " + str(index))
