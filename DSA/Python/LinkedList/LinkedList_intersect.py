@@ -37,7 +37,7 @@ class Solution:
  
  # Implementation using 2 Pointer Concept which has O(N+M) time complexity and O(1) space complexity.
  
- class Solution:
+class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
         if headA == None or headB == None:
             return None
