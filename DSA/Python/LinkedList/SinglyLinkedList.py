@@ -3,9 +3,9 @@ class Node:
         self.data = data
         self.next = next
 
-class MyLinkedList:
+class SinglyLinkedList:
 
-    def __init__(self, data = None):
+    def __init__(self):
         """
         Initialize your data structure here.
         """
@@ -109,8 +109,8 @@ class MyLinkedList:
         print(lnkList)
 
 if __name__ == "__main__":       
-    # Your MyLinkedList object will be instantiated and called as such:
-    obj = MyLinkedList()
+    # Your SinglyLinkedList object will be instantiated and called as such:
+    obj = SinglyLinkedList()
     # param_1 = obj.get(index)
     obj.addAtHead(5)
     obj.addAtHead(15)

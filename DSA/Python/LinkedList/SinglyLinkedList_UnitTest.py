@@ -1,8 +1,8 @@
 import unittest
-import MyLinkedList as MyLL
+import SinglyLinkedList as SLL
 class Test_DynamicArray(unittest.TestCase):
     def setUp(self):
-        self.testObj = MyLL.MyLinkedList()
+        self.testObj = SLL.MyLinkedList()
         self.myListElements = [5,15,25]
         self.mylistLen = len(self.myListElements)
         for element in self.myListElements:
