@@ -1,4 +1,4 @@
-'''
+"""
 LeetCode - 448
 Find All Numbers Disappeared in an Array
 
@@ -15,16 +15,17 @@ Input:
 
 Output:
 [5,6]
-'''
+"""
+
 
 class Solution:
     def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
         missing_items = []
         for i in nums:
-            if nums[abs(i)-1] > 0:
-                nums[abs(i)-1] = -nums[abs(i)-1]
-        
+            if nums[abs(i) - 1] > 0:
+                nums[abs(i) - 1] = -nums[abs(i) - 1]
+
         for i in range(len(nums)):
             if nums[i] > 0:
-                missing_items.append(i+1)
+                missing_items.append(i + 1)
         return missing_items

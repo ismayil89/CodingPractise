@@ -1,4 +1,4 @@
-'''
+"""
 414. Third Maximum Number
 Easy
 
@@ -33,24 +33,26 @@ Output: 1
 
 Explanation: Note that the third maximum here means the third maximum distinct number.
 Both numbers with value 2 are both considered as second maximum.
-'''
+"""
+
 
 class Solution:
     def thirdMax(self, nums: List[int]) -> int:
         import sys
+
         nums = list(set(nums))
         maxnum = nums[0]
-        max_2nd = max_3rd= -sys.maxsize
-        
-        if len(nums)>1:
-            i=1
-            while(i<len(nums)):
+        max_2nd = max_3rd = -sys.maxsize
+
+        if len(nums) > 1:
+            i = 1
+            while i < len(nums):
                 if maxnum < nums[i]:
                     previous_maxnum = maxnum
                     maxnum = nums[i]
                 else:
                     previous_maxnum = nums[i]
-                if len(nums) > 2: 
+                if len(nums) > 2:
                     if max_2nd < previous_maxnum:
                         previous_max_2nd = max_2nd
                         max_2nd = previous_maxnum
@@ -58,10 +60,10 @@ class Solution:
                         previous_max_2nd = previous_maxnum
                     if max_3rd < previous_max_2nd:
                         max_3rd = previous_max_2nd
-                        
+
                 i += 1
-        
-        if (len(nums) < 3):
+
+        if len(nums) < 3:
             return maxnum
         else:
             return max_3rd

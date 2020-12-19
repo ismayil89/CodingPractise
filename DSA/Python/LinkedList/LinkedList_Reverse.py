@@ -1,4 +1,4 @@
-'''
+"""
 LC #206 
 Reverse Linked List
 
@@ -11,7 +11,7 @@ Output: 5->4->3->2->1->NULL
 Follow up:
 
 A linked list can be reversed either iteratively or recursively. Could you implement both?
-'''
+"""
 # Iterative Method
 
 # Definition for singly-linked list.
@@ -28,5 +28,5 @@ class Solution:
             Ptr_current.next = Ptr_previous
             Ptr_previous = Ptr_current
             Ptr_current = Ptr_next
-            
+
         return Ptr_previous

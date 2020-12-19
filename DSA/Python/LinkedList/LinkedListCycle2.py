@@ -1,4 +1,4 @@
-'''
+"""
 Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
 
 There is a cycle in a linked list if there is some node in the list that can be reached again by 
@@ -10,7 +10,7 @@ Example 1:
 Input: head = [3,2,0,-4], pos = 1
 Output: tail connects to node index 1
 Explanation: There is a cycle in the linked list, where tail connects to the second node.
-'''
+"""
 
 # Definition for singly-linked list.
 # class ListNode:
@@ -23,22 +23,23 @@ Explanation: There is a cycle in the linked list, where tail connects to the sec
 #     def __init__(self, x):
 #         self.val = x
 #         self.next = None
+
 
 class Solution:
     def detectCycle(self, head: ListNode) -> ListNode:
         if head == None:
             return None
-        
+
         if head == head.next:
             return head
-        
+
         step = {}
         single_step = head
-        
+
         while single_step:
             if single_step in step.keys():
                 return single_step
             step[single_step] = None
             single_step = single_step.next
-                
+
         return None
