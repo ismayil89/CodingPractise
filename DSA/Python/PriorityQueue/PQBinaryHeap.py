@@ -52,3 +52,27 @@ class PQBinaryHeap:
         '''
 
     def sink(self):
+        '''
+        '''
+
+    def Heapify(self, HeapList):
+        # Set current node to last element
+        # In Heapify, always start from the last element
+        currentNode = len(HeapList) - 1
+        while(currentNode > 0):
+            parentNode = math.floor((currentNode-1)/2)
+            if HeapList[parentNode] < HeapList[currentNode]:
+                HeapList[parentNode], HeapList[currentNode] = HeapList[currentNode], HeapList[parentNode]    
+                leftChild = 2 * currentNode + 1
+                rightChild = 2 * (currentNode + 1)
+
+                if leftChild < len(HeapList): 
+                    if rightChild < len(HeapList):
+                        if HeapList[leftChild] < HeapList[rightChild]:
+                            HeapList[leftChild], HeapList[rightChild] = HeapList[rightChild], HeapList[leftChild]
+                    if HeapList[currentNode] < HeapList[leftChild]:
+                        HeapList[currentNode], HeapList[leftChild] = HeapList[leftChild], HeapList[currentNode]
+
+            currentNode = currentNode-1
+
+        return(HeapList)
