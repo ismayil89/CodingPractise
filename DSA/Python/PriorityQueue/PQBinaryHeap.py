@@ -1,37 +1,57 @@
 import math
 class PQBinaryHeap:
-    def __init__(self):
+    def __init__(self, ascendig=True):
         self.size = 0
         self.capacity = 10
+        self.ascending = ascendig
         self.pqueue = self.capacity * [None]
+        self.dataType = None
 
     def sizeOf(self):
         return(self.size)
 
     def isEmpty(self):
-        return(self.size == 0)
+        return(self.sizeOf() == 0)
 
     def clear(self):
         '''
         Clears the Priority Queue
         '''
+        self.pqueue = []
+        self.size = 0
+        return(self.sizeOf())
 
-    def isLess(self, node1, node2):
-        '''
-        Compares whethere Node1 is less than Node2
-        '''
-        return(node1 < node2)
-
-    def addNode(self):
+    def addNode(self, data):
         '''
         Adds the node to Priority Queue
         '''
+        if self.sizeOf == 10:
+            raise Exception(f'Priority Queue is Full')
+
+        if self.sizeOf() == 0:
+            self.dataType = type(data)
+
+        if self.dataType != type(data):
+            raise Exception(f'Data of type {type(data)} can\'t be combined with {type(self.dataType)}')
+
+        print(25 * '*')
+        print(self.size)
+        self.pqueue[self.size] = data
+        #print(self.pqueue)
+        self.size += 1
+        #if self.sizeOf() > 1:
+        #    if self.ascending:
+        #        self.MinHeap()
+        #    else:
+        #        self.MaxHeap()
+
+        return(self.sizeOf())
 
     def peek(self):
         '''
         Returns the value of element at the Root of Heap (Index - 0)
         '''
-        if self.size != 0:
+        if self.sizeOf() != 0:
             return(self.pqueue[0])
         
         return(None)
@@ -40,39 +60,75 @@ class PQBinaryHeap:
         '''
         Removes the root of the Heap and returns the value (Index - 0)
         '''
+        if self.sizeOf() > 1:
+            if self.ascending:
+                self.MinHeap()
+            else:
+                self.MaxHeap()
 
-    def remove(self, data):
-        '''
-        Removes specific value from a Priority Queue
-        '''
+        if self.sizeOf() > 0:
+            data = self.pqueue[0]
+            self.pqueue[0] = self.pqueue[-1]
+            self.pqueue[-1] = None
+            self.size -= 1
+            return(data)
+        
+        return(None)
 
-    def removeAt(self, index):
+    def contains(self,data):
         '''
-        Removes value at a specific Index
+        Returns True/False if the element is present in Priority Queue
         '''
+        if data in self.pqueue:
+            return(True)
+        else:
+            return(False)
 
-    def sink(self):
+    def MaxHeap(self):
         '''
+        This function returns the Max Heap of current Priority List
         '''
-
-    def Heapify(self, HeapList):
         # Set current node to last element
         # In Heapify, always start from the last element
-        currentNode = len(HeapList) - 1
-        while(currentNode > 0):
-            parentNode = math.floor((currentNode-1)/2)
-            if HeapList[parentNode] < HeapList[currentNode]:
-                HeapList[parentNode], HeapList[currentNode] = HeapList[currentNode], HeapList[parentNode]    
-                leftChild = 2 * currentNode + 1
-                rightChild = 2 * (currentNode + 1)
+        #print(25 * '#')
+        #print("Size is " + str(self.sizeOf()))
+        cN = self.sizeOf() - 1 # Current Node
+        #print(self.pqueue[cN])
+        while(cN > 0):
+            pN = math.floor((cN - 1)/2) # Parent Node
+            if self.pqueue[pN] < self.pqueue[cN]:
+                self.pqueue[pN], self.pqueue[cN] = self.pqueue[cN], self.pqueue[pN]    
+                lC = 2 * cN + 1 # Left Child
+                rC = 2 * (cN + 1) # Right Child
 
-                if leftChild < len(HeapList): 
-                    if rightChild < len(HeapList):
-                        if HeapList[leftChild] < HeapList[rightChild]:
-                            HeapList[leftChild], HeapList[rightChild] = HeapList[rightChild], HeapList[leftChild]
-                    if HeapList[currentNode] < HeapList[leftChild]:
-                        HeapList[currentNode], HeapList[leftChild] = HeapList[leftChild], HeapList[currentNode]
+                if lC < self.sizeOf(): 
+                    if rC < self.sizeOf():
+                        if self.pqueue[lC] < self.pqueue[rC]:
+                            self.pqueue[lC], self.pqueue[rC] = self.pqueue[rC], self.pqueue[lC]
+                    if self.pqueue[cN] < self.pqueue[lC]:
+                        self.pqueue[cN], self.pqueue[lC] = self.pqueue[lC], self.pqueue[cN]
 
-            currentNode = currentNode-1
+            cN = cN - 1
 
-        return(HeapList)
+    def MinHeap(self):
+        '''
+        This function returns the Min Heap of current Priority List
+        '''
+        # Set current node to last element
+        # In Heapify, always start from the last element
+        cN = self.sizeOf() - 1 # Current Node
+        while(cN > 0):
+            pN = math.floor((cN - 1)/2) # Parent Node
+            if self.pqueue[pN] > self.pqueue[cN]:
+                self.pqueue[pN], self.pqueue[cN] = self.pqueue[cN], self.pqueue[pN]    
+                lC = 2 * cN + 1 # Left Child
+                rC = 2 * (cN + 1) # Right Child
+
+                if lC < self.sizeOf(): 
+                    if rC < self.sizeOf():
+                        if self.pqueue[lC] > self.pqueue[rC]:
+                            self.pqueue[lC], self.pqueue[rC] = self.pqueue[rC], self.pqueue[lC]
+                    if self.pqueue[cN] > self.pqueue[lC]:
+                        self.pqueue[cN], self.pqueue[lC] = self.pqueue[lC], self.pqueue[cN]
+
+            cN = cN - 1
