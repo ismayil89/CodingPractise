@@ -39,11 +39,11 @@ class PQBinaryHeap:
         self.pqueue[self.size] = data
         #print(self.pqueue)
         self.size += 1
-        #if self.sizeOf() > 1:
-        #    if self.ascending:
-        #        self.MinHeap()
-        #    else:
-        #        self.MaxHeap()
+        if self.sizeOf() > 1:
+            if self.ascending:
+                self.MinHeap()
+            else:
+                self.MaxHeap()
 
         return(self.sizeOf())
 
@@ -68,8 +68,8 @@ class PQBinaryHeap:
 
         if self.sizeOf() > 0:
             data = self.pqueue[0]
-            self.pqueue[0] = self.pqueue[-1]
-            self.pqueue[-1] = None
+            self.pqueue[0] = self.pqueue[self.size-1]
+            self.pqueue[self.size-1] = None
             self.size -= 1
             return(data)
         
