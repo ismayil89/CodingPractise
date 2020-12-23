@@ -37,8 +37,6 @@ class PQueue_UnitTest(unittest.TestCase):
             data = self.pqueueObj.poll()
 
         self.assertEqual(sortedData, sorted(self.floatHeap))
-
-        #self.assertTrue(self.pqueueObj.clear())
         self.floatHeapLen = 0
         self.assertEqual(self.floatHeapLen + 1, self.pqueueObj.addNode(3.0))
         self.assertRaises(Exception, self.pqueueObj.addNode, 3)
@@ -57,7 +55,6 @@ class PQueue_UnitTest(unittest.TestCase):
     def test_clear(self):
         self.assertEqual(0,self.pqueueObj.clear())
         self.assertEqual(0,self.pqueueObj.clear())
-
 
 if __name__ == "__main__":
     unittest.main()

@@ -2,7 +2,7 @@ import unittest
 import PQBinaryHeap
 from random import seed
 from random import randint
-import random, string
+#import random, string
 
 class PQueue_UnitTest(unittest.TestCase):
     def setUp(self) -> None:
@@ -50,8 +50,6 @@ class PQueue_UnitTest(unittest.TestCase):
             data = self.pqueueObj.poll()
 
         self.assertEqual(sortedData, sorted(self.strHeap, reverse=True))
-
-        #self.assertTrue(self.pqueueObj.clear())
         self.strHeapLen = 0
         self.assertEqual(self.strHeapLen + 1, self.pqueueObj.addNode('GitHub'))
         self.assertRaises(Exception, self.pqueueObj.addNode, 4.3)

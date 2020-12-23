@@ -8,9 +8,15 @@ class PQBinaryHeap:
         self.dataType = None
 
     def sizeOf(self):
+        '''
+        Returns the size of Priority Queue
+        '''
         return(self.size)
 
     def isEmpty(self):
+        '''
+        Validates if the priority Queue is empty
+        '''
         return(self.sizeOf() == 0)
 
     def clear(self):
@@ -34,10 +40,7 @@ class PQBinaryHeap:
         if self.dataType != type(data):
             raise Exception(f'Data of type {type(data)} can\'t be combined with {type(self.dataType)}')
 
-        print(25 * '*')
-        print(self.size)
         self.pqueue[self.size] = data
-        #print(self.pqueue)
         self.size += 1
         if self.sizeOf() > 1:
             if self.ascending:

@@ -2,7 +2,6 @@ import unittest
 import PQBinaryHeap
 from random import seed
 from random import randint
-import random
 
 class PQueue_UnitTest(unittest.TestCase):
     def setUp(self) -> None:
@@ -38,8 +37,6 @@ class PQueue_UnitTest(unittest.TestCase):
             data = self.pqueueObj.poll()
 
         self.assertEqual(sortedData, sorted(self.IntHeap, reverse=True))
-
-        #self.assertTrue(self.pqueueObj.clear())
         self.IntHeapLen = 0
         self.assertEqual(self.IntHeapLen + 1, self.pqueueObj.addNode(3))
         self.assertRaises(Exception, self.pqueueObj.addNode, "3")
