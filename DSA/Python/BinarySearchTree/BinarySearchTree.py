@@ -1,10 +1,11 @@
+import Queue #.Queue as Queue
 class Node:
     def __init__(self, elem, left = None, right = None):
         self.data = elem
         self.left = left
         self.right = right
 
-class BST:
+class BinarySearchTree:
     def __init__(self):
         self.root = None
         self.nodeCount = 0
@@ -23,9 +24,9 @@ class BST:
             return False
 
         if elem < node.data:
-            return self.__contains(self.left, elem)
+            return self.__contains(node.left, elem)
         elif elem > node.data:
-            return self.__contains(self.right, elem)
+            return self.__contains(node.right, elem)
         else:
             return True
     
@@ -35,7 +36,7 @@ class BST:
     def __height(self, node):
         if node == None:
             return 0
-        return max(self.__height(self.left), self.__height(self.right)) + 1
+        return max(self.__height(node.left), self.__height(node.right)) + 1
 
     def add(self, elem):
         if self.contains(elem):
@@ -93,3 +94,63 @@ class BST:
         while(curNode.left != None):
             curNode = curNode.left
         return curNode
+
+    def preOrder(self):
+        node = self.root
+        preOrderList = []
+        return(self.__preOrder(node, preOrderList))
+        
+    def __preOrder(self, node, myLst):
+        if node == None:
+            return None
+        myLst.append(node.data)
+        self.__preOrder(node.left, myLst)
+        self.__preOrder(node.right, myLst)
+        return(myLst)
+    
+    def inOrder(self):
+        node = self.root
+        inOrderList = []
+        return(self.__inOrder(node, inOrderList))
+
+    def __inOrder(self, node, myLst):
+        if node == None:
+            return None
+        self.__inOrder(node.left, myLst)
+        myLst.append(node.data)
+        self.__inOrder(node.right, myLst)
+        return(myLst)
+
+    def postOrder(self):
+        node = self.root
+        postOrderList = []
+        return(self.__postOrder(node, postOrderList))
+
+    def __postOrder(self, node, myLst):
+        if node == None:
+            return None
+        self.__postOrder(node.left, myLst)
+        self.__postOrder(node.right, myLst)
+        myLst.append(node.data)
+        return(myLst)
+
+    def linearOrder(self):
+        node = self.root
+        linearOrderList = [node.data]
+        queueObj = Queue.Queue()
+        return(self.__linearOrder(node, linearOrderList, queueObj))
+
+    def __linearOrder(self, node, myLst, queueObj):
+        if node.left:
+            queueObj.enqueue(node.left)
+        if node.right:
+            queueObj.enqueue(node.right)
+        node = queueObj.dequeue()
+        try:
+            if node.data:
+                myLst.append(node.data)
+                self.__linearOrder(node, myLst, queueObj)
+        except Exception:
+            pass
+        
+        return(myLst)
