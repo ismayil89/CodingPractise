@@ -1,4 +1,4 @@
-import Queue #.Queue as Queue
+import Queue
 class Node:
     def __init__(self, elem, left = None, right = None):
         self.data = elem
