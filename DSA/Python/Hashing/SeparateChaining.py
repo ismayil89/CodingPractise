@@ -6,12 +6,6 @@ class Entry:
         self.value = value
         self.hash = hash(key)
     
-    #def equals(self, other):
-    #    if self.hash != other.hash:
-    #        return False
-    #    else:
-    #        return(self.key == other.key)
-
 class SeparateChaining:
     def __init__(self):
         self.LoadFactor = 0.75
@@ -31,8 +25,11 @@ class SeparateChaining:
         return((keyHash & 0x7FFFFFFF) % self.Capacity)
 
     def clear(self):
-        self.Table = []
+        self.Capacity = 3
+        self.Threshold = self.LoadFactor * self.Capacity
         self.size = 0
+        # Creating a List of Lists
+        self.Table = self.Capacity * [None]
 
     def hasKey(self, key):
         bucketIndex = self.__normalizeIndex(hash(key))
