@@ -1,4 +1,11 @@
-import time
+__author__ = "Mohamed Ismayil"
+__credits__ = ["William Fiset"]
+__version__ = "1.0"
+__maintainer__ = "Mohamed Ismayil"
+__email__ = "ismayil.ece@gmail.com"
+__status__ = "Prototype"
+__date__ = "01-Jan-2021"
+
 class FenwickTreeRangeQueryPointUpdate:
     def __init__(self, values = []):
         self.values = values
@@ -7,8 +14,7 @@ class FenwickTreeRangeQueryPointUpdate:
         print(f'FT - {self.OriginalFen}')
         if not self.OriginalFen:
             raise Exception("Invalid List")
-        #self.CurrentFen = self.OriginalFen[:]
-    
+        
     def __createFenwickTree(self):
         if self.values == [] or self.values == None:
             return False
@@ -49,13 +55,12 @@ class FenwickTreeRangeQueryPointUpdate:
 
 if __name__ == "__main__":
     
-    myList2 = [0,1,2,2,4]
-    print(f'Original - {myList2}')
-    fenwickObj2 = FenwickTreeRangeQueryPointUpdate(myList2)
+    myList = [0,1,2,2,4]
+    print(f'Original - {myList}')
+    fenwickObj2 = FenwickTreeRangeQueryPointUpdate(myList)
     print(fenwickObj2.sum(1, 4))
     fenwickObj2.add(3, 1)
     print(fenwickObj2.sum(1, 4))
     fenwickObj2.set(4, 0)
     print(fenwickObj2.sum(1, 4))
     print(fenwickObj2.get(2))
-    

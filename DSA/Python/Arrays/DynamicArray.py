@@ -4,7 +4,7 @@ __version__ = "1.0"
 __maintainer__ = "Mohamed Ismayil"
 __email__ = "ismayil.ece@gmail.com"
 __status__ = "Prototype"
-
+__date__ = "14-Dec-2020"
 
 class DynamicArray:
     """

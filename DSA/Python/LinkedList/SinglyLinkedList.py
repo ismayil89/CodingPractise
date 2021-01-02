@@ -1,3 +1,11 @@
+__author__ = "Mohamed Ismayil"
+__credits__ = ["William Fiset"]
+__version__ = "1.0"
+__maintainer__ = "Mohamed Ismayil"
+__email__ = "ismayil.ece@gmail.com"
+__status__ = "Prototype"
+__date__ = "19-Dec-2020"
+
 class Node:
     def __init__(self, data=None, next=None) -> None:
         self.data = data

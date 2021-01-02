@@ -1,3 +1,11 @@
+__author__ = "Mohamed Ismayil"
+__credits__ = ["William Fiset"]
+__version__ = "1.0"
+__maintainer__ = "Mohamed Ismayil"
+__email__ = "ismayil.ece@gmail.com"
+__status__ = "Prototype"
+__date__ = "01-Jan-2021"
+
 class FenwickTreeRangeUpdatePointQuery:
     def __init__(self, values = []):
         self.values = values
@@ -57,7 +65,6 @@ class FenwickTreeRangeUpdatePointQuery:
 
 if __name__ == "__main__":
     myList = [0,1,-2,3,-4,5,-6]
-    #myList = [0,1,2,2,4]
     fenwickObj = FenwickTreeRangeUpdatePointQuery(myList)
     fenwickObj.updateRange(1, 4, 10)
     print(fenwickObj.get(1))

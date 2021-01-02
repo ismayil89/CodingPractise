@@ -1,3 +1,11 @@
+__author__ = "Mohamed Ismayil"
+__credits__ = ["William Fiset"]
+__version__ = "1.0"
+__maintainer__ = "Mohamed Ismayil"
+__email__ = "ismayil.ece@gmail.com"
+__status__ = "Prototype"
+__date__ = "19-Dec-2020"
+
 class Queue:
     """
     Queue implementation using Array/List

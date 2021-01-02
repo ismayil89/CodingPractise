@@ -1,3 +1,11 @@
+__author__ = "Mohamed Ismayil"
+__credits__ = ["William Fiset"]
+__version__ = "1.0"
+__maintainer__ = "Mohamed Ismayil"
+__email__ = "ismayil.ece@gmail.com"
+__status__ = "Prototype"
+__date__ = "24-Dec-2020"
+
 class UnionFind:
     '''
     Constructor of Union Find Class
