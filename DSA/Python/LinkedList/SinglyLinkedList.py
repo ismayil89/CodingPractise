@@ -43,11 +43,11 @@ class SinglyLinkedList:
         if self.head is None:
             node = Node(val, self.head)
             self.head = node
-
-        itr = self.head
-        while itr.next:
-            itr = itr.next
-        itr.next = Node(val, None)
+        else:
+            itr = self.head
+            while itr.next:
+                itr = itr.next
+            itr.next = Node(val, None)
 
     def addAtIndex(self, index: int, val: int) -> None:
         """
@@ -116,21 +116,27 @@ class SinglyLinkedList:
 
         print(lnkList)
 
+    def getLinkedList(self):
+        if self.head:
+            return self.head
+        else:
+            return None
 
-if __name__ == "__main__":
-    # Your SinglyLinkedList object will be instantiated and called as such:
-    obj = SinglyLinkedList()
-    # param_1 = obj.get(index)
-    obj.addAtHead(5)
-    obj.addAtHead(15)
-    obj.addAtHead(25)
-    obj.printLinkedList()
-    obj.addAtTail(20)
-    obj.printLinkedList()
-    obj.addAtIndex(2, 99)
-    obj.printLinkedList()
-    print("Deleting")
-    obj.deleteAtIndex(3)
-    obj.printLinkedList()
-    param_1 = obj.get(3)
-    print(param_1)
+#if __name__ == "__main__":
+#    # Your SinglyLinkedList object will be instantiated and called as such:
+#    obj = SinglyLinkedList()
+#    # param_1 = obj.get(index)
+#    obj.addAtHead(5)
+#    obj.addAtHead(15)
+#    obj.addAtHead(25)
+#    obj.printLinkedList()
+#    obj.addAtTail(20)
+#    obj.printLinkedList()
+#    obj.addAtIndex(2, 99)
+#    obj.printLinkedList()
+#    print("Deleting")
+#    obj.deleteAtIndex(3)
+#    obj.printLinkedList()
+#    param_1 = obj.get(3)
+#    print(param_1)
+#
